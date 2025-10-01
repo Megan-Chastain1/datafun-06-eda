@@ -16,12 +16,10 @@ Creating a GitHub account and repository, and setting up a local project to sync
   * **Clone the Repository:**
       * Open Visual Studio Code.
       * Go to **Terminal** \> **New Terminal** in the top menu.
-      * In the terminal, navigate to your new folder by typing `cd C:\Repos`.
       * Now, clone your repository. **Replace** `youraccount` and `yourrepo` with your actual GitHub username and repository name.
         ```
-        git clone https://github.com/youraccount/datafun-01-utils.git
+        git clone https://github.com/youraccount/YourRepro.git
         ```
-      * After this command, a new folder named **`datafun-01-utils`** will appear inside your `C:\Repos` folder.
 
 -----
 
@@ -31,7 +29,7 @@ Creating a GitHub account and repository, and setting up a local project to sync
       * In the VS Code file explorer, open the newly created `datafun-01-utils` folder.
       * Create a new file named **`.gitignore`** (make sure there's a dot at the beginning). This file tells Git to ignore certain files and folders, like your virtual environment.
       * Create another new file named **`requirements.txt`**. This file will list all the Python packages your project depends on.
-  * **Sync and Save Changes:** In the VS Code terminal, make sure you are in the `datafun-01-utils` folder (`cd C:\Repos\datafun-01-utils`). Then run the following commands in order:
+  * **Sync and Save Changes:** In the VS Code terminal, make sure you are in your repro integrated folder terminal. Then run the following commands in order:
     ```
     git add .
     git commit -m "Add .gitignore and requirements.txt files"
@@ -45,10 +43,17 @@ Creating a GitHub account and repository, and setting up a local project to sync
 
 ## 4\. Create a Virtual Environment
 
-  * With your terminal still open and your current directory set to `C:\Repos\datafun-01-utils`, run the following command to create a virtual environment:
+  * With your terminal still open, run the following command to create a virtual environment:
     ```
     py -m venv .venv
     ```
   * This command creates a new folder named **`.venv`** in your project directory. This folder contains a local, isolated Python environment where you can install packages for this specific project without affecting your system's global Python installation.
 
+-----
+## 5\. Import a Dataset
+
+  * To import a dataset run the following in a cell of your Jupyter notebook:
+    '''
+    import seaborn as sns
+    df: pd.DataFrame = sns.load_dataset("Health Expenditure")
 -----
