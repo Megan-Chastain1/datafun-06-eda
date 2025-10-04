@@ -56,4 +56,43 @@ Creating a GitHub account and repository, and setting up a local project to sync
     '''
     import seaborn as sns
     df: pd.DataFrame = sns.load_dataset("Health Expenditure")
+    
+  * This will pull data from the datset Health Expenditure from the seaborn database. Health Expenditure contains health spending data from different countries in USD.
+    
 -----
+## 6\. Perform initial data investigation
+  * display information about the dataset
+
+   health_expenditure_df.head(20)
+
+   health_expenditure_df.shape
+
+   health_expenditure_df.dtypes
+
+   health_expenditure_df.info()
+  * display the column count with a graph
+  health_expenditure_df['Country'].value_counts()
+
+   for col in health_expenditure_df.select_dtypes(include=['object', 'category']).columns:
+    * Display count plot
+    sns.countplot(x=col, data=health_expenditure_df)
+    matplotlib.pyplot.title(f'Distribution of {col}')
+    matplotlib.pyplot.show()
+
+    * Show all plots
+    matplotlib.pyplot.show() 
+---
+## 7\. Visualize the Data with a Scatterplot
+  * Create a scatter plot of health spending vs life expectancy
+scatter_plt: Axes = sns.scatterplot(
+    data=health_expenditure_df, x="Life_Expectancy", y="Spending_USD", hue="Country"
+)
+
+  * Set axis labels using the Matplotlib Axes methods set_xlabel() and set_ylabel()
+scatter_plt.set_xlabel("Life Expectancy")
+scatter_plt.set_ylabel("Spending (USD)")
+
+  * Set the title using the Matplotlib Axes set_title() method
+scatter_plt.set_title("Chart 1. Life Expectancy vs. Spending(USD)")
+
+## 8\. Draw conclustions
